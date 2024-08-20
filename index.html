@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+    <title>RPG - Vampire Hunter</title>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css?family=Nosifer&display=swap');
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      html, body {
+          height: 100%;
+          width: 100%;
+      }
+
+      body {
+          transition: all 0.5s ease;
+          font-family: Arial, sans-serif;
+      }
+
+      /* Full-screen background with a spooky Halloween gradient */
+      .halloween {
+          background: linear-gradient(180deg, #1c1c1c 0%, #381919 40%, #030303 100%);
+          background-size: cover;
+          min-height: 100vh;
+          min-width: 100vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          filter: grayscale(1) invert(1) brightness(1.1);
+          mix-blend-mode: luminosity;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .halloween h1, .halloween p {
+          z-index: 2;
+      }
+
+      .halloween h1, .halloween h2, .halloween h3,
+      .halloween h4, .halloween h5, .halloween h6 {
+          font-family: 'Nosifer', sans-serif !important;
+      }
+
+      /* Fog effect */
+      .fog {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('https://i.imgur.com/CbE7JLN.png') repeat-x;
+          animation: fog-animation 30s linear infinite;
+          opacity: 0.1;
+      }
+
+      @keyframes fog-animation {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+      }
+
+      #toggleHalloween {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 2;
+          padding: 10px 20px;
+          background-color: #ff7518;
+          border: none;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+      }
+
+      #toggleHalloween:hover {
+          background-color: #e64a00;
+      }
+  </style>
+  </style>
+  </head>
+  <body>
+    <div id="game">
+      <div id="stats">
+        <span class="stat">XP: <strong><span id="xpText">0</span></strong></span>
+        <span class="stat">Health: <strong><span id="healthText">100</span></strong></span>
+        <span class="stat">Gold: <strong><span id="goldText">50</span></strong></span>
+      </div>
+      <div id="controls">
+        <button id="button1">Go To Store</button>
+        <button id="button2">Go To Manor</button>
+        <button id="button3">Fight Dracula!</button>
+      </div>
+      <div id="monsterStats">
+        <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+        <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
+      </div>
+      <div id="text">
+        Welcome to Vampire Hunter! You must defeat Count Dracula, the vampire who's darkness reigns over the realm.
+        You are in the town square. Where do you want to go? Use the buttons above.
+      </div>
+      <button id="toggleHalloween">Toggle Halloween Mode</button>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
