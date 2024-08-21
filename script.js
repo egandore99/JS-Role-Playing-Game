@@ -4,7 +4,7 @@ let gold = 50;
 let currentWeaponIndex = 0;
 let fighting;
 let monsterHealth;
-let inventory = ["stick"];
+let inventory = ["garlic"];
 
 const button1 = document.querySelector('#button1');
 const button2 = document.querySelector("#button2");
@@ -17,33 +17,33 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-  { name: 'garlic', power: 5 },
-  { name: 'wooden stake', power: 30 },
-  { name: 'holy water', power: 50 },
+  { name: 'garlic', power: 10 },
+  { name: 'wooden stake', power: 35 },
+  { name: 'holy water', power: 55 },
   { name: 'aluminum sword', power: 100 }
 ];
 const monsters = [
   {
-    name: "slime",
+    name: "ghoul",
     level: 2,
     health: 15
   },
   {
-    name: "fanged beast",
+    name: "vampire",
     level: 8,
     health: 60
   },
   {
-    name: "dragon",
+    name: "Dracula",
     level: 20,
-    health: 300
+    health: 250
   }
 ]
 const locations = [
   {
     name: "town square",
-    "button text": ["Go to store", "Go to cave", "Fight dragon"],
-    "button functions": [goStore, goCave, fightDragon],
+    "button text": ["Go to Store", "Go to Manor", "Fight Dracula"],
+    "button functions": [goStore, goManor, fightDracula],
     text: "You are in the town square. You see a sign that says \"Store\"."
   },
   {
@@ -53,10 +53,10 @@ const locations = [
     text: "You enter the store."
   },
   {
-    name: "cave",
-    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
-    "button functions": [fightSlime, fightBeast, goTown],
-    text: "You enter the cave. You see some monsters."
+    name: "manor",
+    "button text": ["Fight ghoul", "Fight vampire", "Go to town square"],
+    "button functions": [fightGhoul, fightVampire, goTown],
+    text: "You enter the manor. You see some monsters."
   },
   {
     name: "fight",
@@ -80,7 +80,7 @@ const locations = [
     name: "win", 
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"], 
     "button functions": [restart, restart, restart], 
-    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;" 
+    text: "You defeated Dracula! YOU WIN THE GAME! &#x1F389;" 
   },
   {
     name: "easter egg",
@@ -90,10 +90,9 @@ const locations = [
   }
 ];
 
-// initialize buttons
 button1.onclick = goStore;
-button2.onclick = goCave;
-button3.onclick = fightDragon;
+button2.onclick = goManor;
+button3.onclick = fightDracula;
 
 function update(location) {
   monsterStats.style.display = "none";
@@ -114,7 +113,7 @@ function goStore() {
   update(locations[1]);
 }
 
-function goCave() {
+function goManor() {
   update(locations[2]);
 }
 
@@ -161,17 +160,17 @@ function sellWeapon() {
   }
 }
 
-function fightSlime() {
+function fightGhoul() {
   fighting = 0;
   goFight();
 }
 
-function fightBeast() {
+function fightVampire() {
   fighting = 1;
   goFight();
 }
 
-function fightDragon() {
+function fightDracula() {
   fighting = 2;
   goFight();
 }
@@ -245,7 +244,7 @@ function restart() {
   health = 100;
   gold = 50;
   currentWeaponIndex = 0;
-  inventory = ["stick"];
+  inventory = ["garlic"];
   goldText.innerText = gold;
   healthText.innerText = health;
   xpText.innerText = xp;
